@@ -147,6 +147,7 @@ extension HomeVC: UISearchBarDelegate {
         
         if let searchText = searchBar.text {
             searchQuery = searchText
+            print(searchQuery)
         
         }
         
