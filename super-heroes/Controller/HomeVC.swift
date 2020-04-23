@@ -41,6 +41,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let apiToken = "10156904415931574"
     var searchQuery = ""
+    let file =  "search-terms"
+    
+    var keySearchTerms = [String]()
+    
    
     
     override func viewDidLoad() {
@@ -50,9 +54,11 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         searchBar.delegate = self
         
-   
+    
+
         
-        keyTerms()
+        keySearchTerms = keyTerms()
+        print(keySearchTerms.count)
     
         fetchHeroJSON { (res) in
             switch res {
@@ -93,32 +99,34 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }.resume()
     }
-//
-//    func arrayFromContentsOfFileWithName(fileName: String) -> [String]? {
-//        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt") else {
-//            return nil
-//        }
-//
-//        do {
-//            let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-//            return content.components(separatedBy: "/n")
-//        } catch _ as NSError {
-//            return nil
-//        }
-//    }
     
-    func keyTerms(){
+    
+   
+    func keyTerms() -> [String]{
+        
+        let path = Bundle.main.path(forResource: file, ofType: "txt")
+        
         do {
-            let path: String = "search-terms.txt"
-            let file = try String(contentsOfFile: path)
-            let text: [String] = file.components(separatedBy: "\n")
-
-            for line in text {
-                Swift.print(line)
-            }
-        } catch let error {
-            Swift.print("Fatal Error: \(error.localizedDescription)")
+            let file = try String(contentsOfFile: path!)
+            let text: [String] = file.components(separatedBy:.newlines)
+            let trimmedArray = text.map { $0.trimmingCharacters(in: .whitespaces)}
+            print(trimmedArray)
+            
+//            for line in trimmedArray {
+//                keySearchTerms.append(line)
+//                print(line)
+//                print("***")
+//
+//            }
+            
+            return trimmedArray
+            
+        } catch let err {
+            print(err)
         }
+        
+        return [String]()
+
     }
     
     

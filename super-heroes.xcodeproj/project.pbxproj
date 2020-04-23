@@ -66,10 +66,10 @@
 		B47ECE632450DB0100E6980C /* super-heroes */ = {
 			isa = PBXGroup;
 			children = (
-				B46D9DFF24519156001F4AD1 /* search-terms.txt */,
 				B46D9DFD2451910A001F4AD1 /* Controller */,
 				B47ECE642450DB0100E6980C /* AppDelegate.swift */,
 				B47ECE662450DB0100E6980C /* SceneDelegate.swift */,
+				B46D9DFF24519156001F4AD1 /* search-terms.txt */,
 				B47ECE6A2450DB0100E6980C /* Main.storyboard */,
 				B47ECE6D2450DB0300E6980C /* Assets.xcassets */,
 				B47ECE6F2450DB0300E6980C /* LaunchScreen.storyboard */,
