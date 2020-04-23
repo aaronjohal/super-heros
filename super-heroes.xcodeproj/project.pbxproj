@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B46D9E0024519156001F4AD1 /* search-terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = B46D9DFF24519156001F4AD1 /* search-terms.txt */; };
 		B47ECE652450DB0100E6980C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47ECE642450DB0100E6980C /* AppDelegate.swift */; };
 		B47ECE672450DB0100E6980C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47ECE662450DB0100E6980C /* SceneDelegate.swift */; };
 		B47ECE692450DB0100E6980C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47ECE682450DB0100E6980C /* HomeVC.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B46D9DFF24519156001F4AD1 /* search-terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "search-terms.txt"; sourceTree = "<group>"; };
 		B47ECE612450DB0100E6980C /* super-heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "super-heroes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47ECE642450DB0100E6980C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B47ECE662450DB0100E6980C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B46D9DFD2451910A001F4AD1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B47ECE682450DB0100E6980C /* HomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B47ECE582450DB0100E6980C = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +66,10 @@
 		B47ECE632450DB0100E6980C /* super-heroes */ = {
 			isa = PBXGroup;
 			children = (
+				B46D9DFF24519156001F4AD1 /* search-terms.txt */,
+				B46D9DFD2451910A001F4AD1 /* Controller */,
 				B47ECE642450DB0100E6980C /* AppDelegate.swift */,
 				B47ECE662450DB0100E6980C /* SceneDelegate.swift */,
-				B47ECE682450DB0100E6980C /* HomeVC.swift */,
 				B47ECE6A2450DB0100E6980C /* Main.storyboard */,
 				B47ECE6D2450DB0300E6980C /* Assets.xcassets */,
 				B47ECE6F2450DB0300E6980C /* LaunchScreen.storyboard */,
@@ -127,6 +138,7 @@
 			files = (
 				B47ECE712450DB0300E6980C /* LaunchScreen.storyboard in Resources */,
 				B47ECE6E2450DB0300E6980C /* Assets.xcassets in Resources */,
+				B46D9E0024519156001F4AD1 /* search-terms.txt in Resources */,
 				B47ECE6C2450DB0100E6980C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

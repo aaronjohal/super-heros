@@ -50,11 +50,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         searchBar.delegate = self
         
-       //let x =  arrayFromContentsOfFileWithName(fileName: "search-terms")
-
-       // print(x)
+   
         
-
+        keyTerms()
+    
         fetchHeroJSON { (res) in
             switch res {
             case .success(let hero): //would use a for-Each if we were dealing with arrays
@@ -94,7 +93,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }.resume()
     }
-    
+//
 //    func arrayFromContentsOfFileWithName(fileName: String) -> [String]? {
 //        guard let path = Bundle.main.path(forResource: fileName, ofType: "txt") else {
 //            return nil
@@ -109,9 +108,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //    }
     
     func keyTerms(){
-    
         do {
-            let path: String = "/Users/aaron.johal/Desktop/search-terms"
+            let path: String = "search-terms.txt"
             let file = try String(contentsOfFile: path)
             let text: [String] = file.components(separatedBy: "\n")
 

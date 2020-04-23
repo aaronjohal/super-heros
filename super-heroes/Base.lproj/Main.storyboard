@@ -15,20 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pzg-dx-Jek">
+                            <searchBar contentMode="redraw" placeholder="Search your super hero..." translatesAutoresizingMaskIntoConstraints="NO" id="CFl-Ep-WoD">
                                 <rect key="frame" x="0.0" y="44" width="375" height="56"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jAt-fz-1wT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zxw-Vx-JR1">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="9pZ-JZ-Px0">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="93"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroCell" rowHeight="66" id="nbW-Cc-VLG">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9pZ-JZ-Px0" id="NUv-F2-E0c">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nbW-Cc-VLG" id="K6Z-fc-xwr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -37,21 +37,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="jAt-fz-1wT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1LW-7H-3nb"/>
-                            <constraint firstItem="jAt-fz-1wT" firstAttribute="top" secondItem="pzg-dx-Jek" secondAttribute="bottom" id="6li-4W-C4u"/>
-                            <constraint firstItem="jAt-fz-1wT" firstAttribute="top" secondItem="pzg-dx-Jek" secondAttribute="bottom" id="jnv-I3-bpi"/>
-                            <constraint firstItem="pzg-dx-Jek" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kcy-Oy-Ola"/>
-                            <constraint firstItem="pzg-dx-Jek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oHQ-Pe-v7a"/>
-                            <constraint firstItem="jAt-fz-1wT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rYN-fD-xNn"/>
-                            <constraint firstItem="jAt-fz-1wT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="v94-N0-Zhk"/>
-                            <constraint firstItem="pzg-dx-Jek" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zhO-le-AYK"/>
+                            <constraint firstItem="CFl-Ep-WoD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5NB-qd-VFl"/>
+                            <constraint firstItem="Zxw-Vx-JR1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B3y-gC-UeO"/>
+                            <constraint firstItem="Zxw-Vx-JR1" firstAttribute="top" secondItem="CFl-Ep-WoD" secondAttribute="bottom" id="InN-E9-ucQ"/>
+                            <constraint firstItem="Zxw-Vx-JR1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Jz2-6W-T7z"/>
+                            <constraint firstItem="CFl-Ep-WoD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YVv-BG-XtJ"/>
+                            <constraint firstItem="Zxw-Vx-JR1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vUU-N2-2kJ"/>
+                            <constraint firstItem="CFl-Ep-WoD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zcb-vS-Q1T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="55F-Ud-KO4"/>
                     <connections>
-                        <outlet property="searchBar" destination="pzg-dx-Jek" id="PGv-Gm-TOr"/>
-                        <outlet property="tableView" destination="jAt-fz-1wT" id="rsT-sW-Cjn"/>
+                        <outlet property="searchBar" destination="CFl-Ep-WoD" id="rd2-BR-IgD"/>
+                        <outlet property="tableView" destination="Zxw-Vx-JR1" id="XAP-y5-v5M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
