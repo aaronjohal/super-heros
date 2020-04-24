@@ -44,6 +44,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let file =  "search-terms"
     
     var keySearchTerms = [String]()
+    var searchInput = [String]()
+    var searching = false
     
    
     
@@ -54,11 +56,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         searchBar.delegate = self
         
-    
-
+        tableView.isHidden = true
         
+
         keySearchTerms = keyTerms()
         print(keySearchTerms.count)
+        
+        searchBar.showsCancelButton = false
     
         fetchHeroJSON { (res) in
             switch res {
@@ -78,7 +82,9 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //https://www.youtube.com/watch?v=9iazQQdNoNU
     func fetchHeroJSON(completion: @escaping (Result<Hero, Error>) -> ()){
         
-        let urlString = "https://superheroapi.com/api/\(apiToken)/70"
+        let resourceURL = "https://superheroapi.com/api/\(apiToken)/70"
+        
+          let urlString = resourceURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! //allows empty spaces for adding the %20
         
         guard let url = URL(string: urlString) else {return}
         
@@ -111,20 +117,12 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let text: [String] = file.components(separatedBy:.newlines)
             let trimmedArray = text.map { $0.trimmingCharacters(in: .whitespaces)}
             print(trimmedArray)
-            
-//            for line in trimmedArray {
-//                keySearchTerms.append(line)
-//                print(line)
-//                print("***")
-//
-//            }
-            
+
             return trimmedArray
             
         } catch let err {
             print(err)
         }
-        
         return [String]()
 
     }
@@ -132,14 +130,48 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 3
+        
+        if searching {
+            return searchInput.count
+        } 
+        return 0
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        if searching {
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroCell", for: indexPath) as? SuperHeroCell {
+                let name = searchInput [indexPath.row]
+                cell.updateView(name: name)
+                return cell
+            }
+            
+        }
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroCell", for: indexPath) as? SuperHeroCell{
+//            let name = keySearchTerms[indexPath.row]
+//            cell.updateView(name: name)
+//
+//
+//
+//        }
+        
            return UITableViewCell()
+    
+        
        }
    
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -147,17 +179,56 @@ extension HomeVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //set the auto complete here https://www.youtube.com/watch?v=wVeX68Iu43E
+        
+         searchBar.showsCancelButton = true
+        searching = true
+        searchInput = keySearchTerms.filter({
+            $0.prefix(searchText.count) == searchText
+        })
+        
+           tableView.isHidden = false
+        tableView.reloadData()
+     
+        
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        searchBar.showsCancelButton = true
+        
         if let searchText = searchBar.text {
             searchQuery = searchText
             print(searchQuery)
+            
         
         }
+        searchBar.endEditing(true)
+        
+        tableView.isHidden = false
         
     }
-
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        tableView.reloadData()
+        searching = false
+        searchBar.showsCancelButton = false
+        tableView.isHidden = true
+    }
+    
+    
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
+    }
+    
+    
+   
+    
+    
+  
+    
+  
     
 }
