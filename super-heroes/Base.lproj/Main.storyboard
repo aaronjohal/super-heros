@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--Super Hero Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="super_heroes" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="55F-Ud-KO4"/>
+                    <navigationItem key="navigationItem" title="Super Hero Search" id="55F-Ud-KO4"/>
                     <connections>
                         <outlet property="searchBar" destination="CFl-Ep-WoD" id="rd2-BR-IgD"/>
                         <outlet property="tableView" destination="Zxw-Vx-JR1" id="XAP-y5-v5M"/>

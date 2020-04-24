@@ -10,23 +10,7 @@ import UIKit
 
 
 
-struct Hero: Codable {
-    let id: String
-    let name: String
-    let powerstats: [String: String]
-    let image: [String: String]
 
-}
-
-struct Powers: Codable {
-    let intelligence: String
-    let strength : String
-    let speed: String
-    let durability: String
-    let power: String
-    let combat: String
-    
-}
 
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -45,7 +29,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var keySearchTerms = [String]()
     var searchInput = [String]()
-    var searching = false
+    var isSearching = false
+    var searchTermSelected = ""
     
    
     
@@ -60,7 +45,6 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
 
         keySearchTerms = keyTerms()
-        print(keySearchTerms.count)
         
         searchBar.showsCancelButton = false
     
@@ -128,19 +112,23 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if searching {
+        if isSearching {
             return searchInput.count
         } 
         return 0
        }
+    
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if searching {
+        if isSearching {
             
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroCell", for: indexPath) as? SuperHeroCell {
                 let name = searchInput [indexPath.row]
@@ -149,26 +137,20 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
         }
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "SuperHeroCell", for: indexPath) as? SuperHeroCell{
-//            let name = keySearchTerms[indexPath.row]
-//            cell.updateView(name: name)
-//
-//
-//
-//        }
         
            return UITableViewCell()
     
         
        }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if  let selectedRow = tableView.cellForRow(at: indexPath) as? SuperHeroCell {
+            print(selectedRow.title.text!)
+        }
+    }
    
 }
-
-
-
-
-
-
 
 
 
@@ -181,7 +163,7 @@ extension HomeVC: UISearchBarDelegate {
         //set the auto complete here https://www.youtube.com/watch?v=wVeX68Iu43E
         
          searchBar.showsCancelButton = true
-        searching = true
+        isSearching = true
         searchInput = keySearchTerms.filter({
             $0.prefix(searchText.count) == searchText
         })
@@ -212,7 +194,7 @@ extension HomeVC: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         tableView.reloadData()
-        searching = false
+        isSearching = false
         searchBar.showsCancelButton = false
         tableView.isHidden = true
     }
