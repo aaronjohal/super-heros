@@ -10,18 +10,21 @@
 		B46D9E0024519156001F4AD1 /* search-terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = B46D9DFF24519156001F4AD1 /* search-terms.txt */; };
 		B46D9E032451C483001F4AD1 /* SuperHeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D9E022451C483001F4AD1 /* SuperHeroCell.swift */; };
 		B46D9E062452F3DC001F4AD1 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D9E052452F3DC001F4AD1 /* Hero.swift */; };
+		B46D9E0924533C38001F4AD1 /* HeroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D9E0824533C38001F4AD1 /* HeroVC.swift */; };
 		B47ECE652450DB0100E6980C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47ECE642450DB0100E6980C /* AppDelegate.swift */; };
 		B47ECE672450DB0100E6980C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47ECE662450DB0100E6980C /* SceneDelegate.swift */; };
 		B47ECE692450DB0100E6980C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47ECE682450DB0100E6980C /* HomeVC.swift */; };
 		B47ECE6C2450DB0100E6980C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47ECE6A2450DB0100E6980C /* Main.storyboard */; };
 		B47ECE6E2450DB0300E6980C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47ECE6D2450DB0300E6980C /* Assets.xcassets */; };
 		B47ECE712450DB0300E6980C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47ECE6F2450DB0300E6980C /* LaunchScreen.storyboard */; };
+		B4A22B442456D58B00F80556 /* SuperHeroRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A22B432456D58B00F80556 /* SuperHeroRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B46D9DFF24519156001F4AD1 /* search-terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "search-terms.txt"; sourceTree = "<group>"; };
 		B46D9E022451C483001F4AD1 /* SuperHeroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroCell.swift; sourceTree = "<group>"; };
 		B46D9E052452F3DC001F4AD1 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		B46D9E0824533C38001F4AD1 /* HeroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroVC.swift; sourceTree = "<group>"; };
 		B47ECE612450DB0100E6980C /* super-heroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "super-heroes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47ECE642450DB0100E6980C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B47ECE662450DB0100E6980C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		B47ECE6D2450DB0300E6980C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B47ECE702450DB0300E6980C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B47ECE722450DB0300E6980C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4A22B432456D58B00F80556 /* SuperHeroRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				B47ECE682450DB0100E6980C /* HomeVC.swift */,
+				B46D9E0824533C38001F4AD1 /* HeroVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -70,6 +75,7 @@
 		B46D9E072452F5DB001F4AD1 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				B4A22B432456D58B00F80556 /* SuperHeroRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -184,7 +190,9 @@
 				B47ECE692450DB0100E6980C /* HomeVC.swift in Sources */,
 				B47ECE652450DB0100E6980C /* AppDelegate.swift in Sources */,
 				B46D9E032451C483001F4AD1 /* SuperHeroCell.swift in Sources */,
+				B46D9E0924533C38001F4AD1 /* HeroVC.swift in Sources */,
 				B47ECE672450DB0100E6980C /* SceneDelegate.swift in Sources */,
+				B4A22B442456D58B00F80556 /* SuperHeroRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

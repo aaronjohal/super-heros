@@ -27,7 +27,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var searchQuery = ""
     let file =  "search-terms"
     
-    var keySearchTerms = [String]()
+    var herosSearchList = [String]()
     var searchInput = [String]()
     var isSearching = false
     var searchTermSelected = ""
@@ -40,59 +40,21 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
         tableView.isHidden = true
         
 
-        keySearchTerms = keyTerms()
+        herosSearchList = readHerosFromFile()
         
         searchBar.showsCancelButton = false
-    
-        fetchHeroJSON { (res) in
-            switch res {
-            case .success(let hero): //would use a for-Each if we were dealing with arrays
-                self.hero = hero
-                    print(self.hero!)
 
-
-            case .failure(let err):
-                print("failed to fetch hero", err)
-            }
-        }
 
     }
     
-    
-    //https://www.youtube.com/watch?v=9iazQQdNoNU
-    func fetchHeroJSON(completion: @escaping (Result<Hero, Error>) -> ()){
-        
-        let resourceURL = "https://superheroapi.com/api/\(apiToken)/70"
-        
-          let urlString = resourceURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)! //allows empty spaces for adding the %20
-        
-        guard let url = URL(string: urlString) else {return}
-        
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-           
-            if let err = err {
-                completion(.failure(err)) //call completion method with nil for no Hero object
-                return
-            }
-            //successful
-            
-            do {
-                 let hero = try JSONDecoder().decode(Hero.self, from: data!)
-                completion(.success(hero))
-            } catch let jsonErr{
-                completion(.failure(jsonErr))
-            }
-            
-        }.resume()
-    }
-    
+
     
    
-    func keyTerms() -> [String]{
+    /** Reads in all the heros that can be searched from a text file*/
+    func readHerosFromFile() -> [String]{
         
         let path = Bundle.main.path(forResource: file, ofType: "txt")
         
@@ -100,21 +62,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let file = try String(contentsOfFile: path!)
             let text: [String] = file.components(separatedBy:.newlines)
             let trimmedArray = text.map { $0.trimmingCharacters(in: .whitespaces)}
-            print(trimmedArray)
-
             return trimmedArray
-            
         } catch let err {
             print(err)
         }
         return [String]()
 
     }
-    
-    
-
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -145,10 +99,23 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  let selectedRow = tableView.cellForRow(at: indexPath) as? SuperHeroCell {
-            print(selectedRow.title.text!)
+        if let selectedRow = tableView.cellForRow(at: indexPath) as? SuperHeroCell {
+            
+            let searchTerm = selectedRow.title.text!
+            performSegue(withIdentifier: "HeroVC", sender: searchTerm)
+            
+            
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let heroVC = segue.destination as? HeroVC {
+            heroVC.initSearchTerm(title: sender as! String)
+        }
+          
+      }
+      
    
 }
 
@@ -164,11 +131,11 @@ extension HomeVC: UISearchBarDelegate {
         
          searchBar.showsCancelButton = true
         isSearching = true
-        searchInput = keySearchTerms.filter({
+        searchInput = herosSearchList.filter({
             $0.prefix(searchText.count) == searchText
         })
         
-           tableView.isHidden = false
+        tableView.isHidden = false
         tableView.reloadData()
      
         
@@ -181,9 +148,6 @@ extension HomeVC: UISearchBarDelegate {
         
         if let searchText = searchBar.text {
             searchQuery = searchText
-            print(searchQuery)
-            
-        
         }
         searchBar.endEditing(true)
         
@@ -210,7 +174,6 @@ extension HomeVC: UISearchBarDelegate {
     
     
   
-    
   
     
 }

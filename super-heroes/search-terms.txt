@@ -21,7 +21,6 @@
 	Ammo
 	Ando Masahashi
 	Angel
-	Angel
 	Angel Dust
 	Angel Salvadore
 	Angela
@@ -48,25 +47,21 @@
 	Atlas
 	Atlas
 	Atom
-	Atom
 	Atom Girl
 	Atom II
 	Atom III
 	Atom IV
 	Aurora
 	Azazel
-	Azrael
 	Aztar
 	Bane
 	Banshee
 	Bantam
 	Batgirl
-	Batgirl
 	Batgirl III
 	Batgirl IV
 	Batgirl V
 	Batgirl VI
-	Batman
 	Batman
 	Batman II
 	Battlestar
@@ -113,7 +108,6 @@
 	Blaquesmith
 	Bling!
 	Blink
-	Blizzard
 	Blizzard
 	Blizzard II
 	Blob
@@ -258,7 +252,6 @@
 	Firelord
 	Firestar
 	Firestorm
-	Firestorm
 	Fixer
 	Flash
 	Flash Gordon
@@ -287,8 +280,6 @@
 	Godzilla
 	Gog
 	Goku
-	Goliath
-	Goliath
 	Goliath
 	Goliath IV
 	Gorilla Grodd
@@ -618,8 +609,6 @@
 	Spider-Girl
 	Spider-Gwen
 	Spider-Man
-	Spider-Man
-	Spider-Man
 	Spider-Woman
 	Spider-Woman II
 	Spider-Woman III
@@ -646,8 +635,6 @@
 	Swarm
 	Sylar
 	Synch
-	T-
-	T-
 	T-
 	T-X
 	Taskmaster

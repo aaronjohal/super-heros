@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct SearchResults: Codable {
+    var results: [Hero]
+    
+}
+
 struct Hero: Codable {
     let id: String
     let name: String

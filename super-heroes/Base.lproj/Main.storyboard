@@ -66,11 +66,28 @@
                     <connections>
                         <outlet property="searchBar" destination="CFl-Ep-WoD" id="rd2-BR-IgD"/>
                         <outlet property="tableView" destination="Zxw-Vx-JR1" id="XAP-y5-v5M"/>
+                        <segue destination="3GR-bJ-kQ4" kind="show" identifier="HeroVC" id="PYL-T6-uWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="114.69265367316342"/>
+        </scene>
+        <!--HeroVC-->
+        <scene sceneID="a29-fC-BFD">
+            <objects>
+                <viewController id="3GR-bJ-kQ4" customClass="HeroVC" customModule="super_heroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mgs-2D-LXg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rB9-2O-SIG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ne0-ON-X5S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O56-Wl-5MM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="113"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WVA-MV-2sO">
