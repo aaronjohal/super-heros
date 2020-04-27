@@ -80,14 +80,41 @@
                     <view key="view" contentMode="scaleToFill" id="mgs-2D-LXg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQW-RQ-hyd">
+                                <rect key="frame" x="79" y="64" width="217" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vfw-6S-1dX">
+                                <rect key="frame" x="16" y="79" width="343" height="293"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="0YZ-3e-Fct"/>
+                                    <constraint firstAttribute="height" constant="293" id="o0F-hg-awA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rB9-2O-SIG" firstAttribute="trailing" secondItem="WQW-RQ-hyd" secondAttribute="trailing" constant="79" id="50F-mh-T82"/>
+                            <constraint firstItem="WQW-RQ-hyd" firstAttribute="leading" secondItem="rB9-2O-SIG" secondAttribute="leading" constant="79" id="C9x-1O-7j8"/>
+                            <constraint firstItem="rB9-2O-SIG" firstAttribute="trailing" secondItem="Vfw-6S-1dX" secondAttribute="trailing" constant="16" id="Fpe-lA-aVF"/>
+                            <constraint firstItem="WQW-RQ-hyd" firstAttribute="top" secondItem="rB9-2O-SIG" secondAttribute="top" constant="20" id="g6J-Hf-ldz"/>
+                            <constraint firstItem="Vfw-6S-1dX" firstAttribute="leading" secondItem="rB9-2O-SIG" secondAttribute="leading" constant="16" id="j4D-lY-akX"/>
+                            <constraint firstItem="Vfw-6S-1dX" firstAttribute="top" secondItem="WQW-RQ-hyd" secondAttribute="bottom" constant="15" id="v7P-E5-a8s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rB9-2O-SIG"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ne0-ON-X5S"/>
+                    <connections>
+                        <outlet property="image" destination="Vfw-6S-1dX" id="DCi-Dn-0tw"/>
+                        <outlet property="name" destination="WQW-RQ-hyd" id="Kp0-eE-A2c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O56-Wl-5MM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821" y="113"/>
+            <point key="canvasLocation" x="1820" y="112.89355322338831"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WVA-MV-2sO">
