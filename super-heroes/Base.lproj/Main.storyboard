@@ -94,13 +94,31 @@
                                     <constraint firstAttribute="height" constant="293" id="o0F-hg-awA"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0eM-ej-jtD">
+                                <rect key="frame" x="16" y="432" width="343" height="215"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="4YN-hz-GgS">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4YN-hz-GgS" id="3tN-ow-qPX">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rB9-2O-SIG" firstAttribute="trailing" secondItem="WQW-RQ-hyd" secondAttribute="trailing" constant="79" id="50F-mh-T82"/>
                             <constraint firstItem="WQW-RQ-hyd" firstAttribute="leading" secondItem="rB9-2O-SIG" secondAttribute="leading" constant="79" id="C9x-1O-7j8"/>
                             <constraint firstItem="rB9-2O-SIG" firstAttribute="trailing" secondItem="Vfw-6S-1dX" secondAttribute="trailing" constant="16" id="Fpe-lA-aVF"/>
+                            <constraint firstItem="rB9-2O-SIG" firstAttribute="trailing" secondItem="0eM-ej-jtD" secondAttribute="trailing" constant="16" id="XDX-kl-WXt"/>
+                            <constraint firstItem="0eM-ej-jtD" firstAttribute="top" secondItem="Vfw-6S-1dX" secondAttribute="bottom" constant="60" id="XYV-ih-rBN"/>
+                            <constraint firstItem="0eM-ej-jtD" firstAttribute="leading" secondItem="rB9-2O-SIG" secondAttribute="leading" constant="16" id="a9Z-yQ-fT8"/>
                             <constraint firstItem="WQW-RQ-hyd" firstAttribute="top" secondItem="rB9-2O-SIG" secondAttribute="top" constant="20" id="g6J-Hf-ldz"/>
+                            <constraint firstItem="rB9-2O-SIG" firstAttribute="bottom" secondItem="0eM-ej-jtD" secondAttribute="bottom" constant="20" id="hPg-hd-bmZ"/>
                             <constraint firstItem="Vfw-6S-1dX" firstAttribute="leading" secondItem="rB9-2O-SIG" secondAttribute="leading" constant="16" id="j4D-lY-akX"/>
                             <constraint firstItem="Vfw-6S-1dX" firstAttribute="top" secondItem="WQW-RQ-hyd" secondAttribute="bottom" constant="15" id="v7P-E5-a8s"/>
                         </constraints>
@@ -110,6 +128,7 @@
                     <connections>
                         <outlet property="image" destination="Vfw-6S-1dX" id="DCi-Dn-0tw"/>
                         <outlet property="name" destination="WQW-RQ-hyd" id="Kp0-eE-A2c"/>
+                        <outlet property="powerTable" destination="0eM-ej-jtD" id="a3m-PF-Gkn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O56-Wl-5MM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

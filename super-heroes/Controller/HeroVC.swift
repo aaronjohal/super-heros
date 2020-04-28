@@ -8,19 +8,33 @@
 
 import UIKit
 
-class HeroVC: UIViewController {
+class HeroVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
     
     var searchTerm = ""
     var hero: Hero!
+    var powerstats = [String: String] (){
+        didSet {
+            DispatchQueue.main.async {
+                self.powerTable.reloadData()
+            }
+        }
+    }
  
  @IBOutlet weak var name: UILabel!
  @IBOutlet weak var image: UIImageView!
+ @IBOutlet weak var powerTable: UITableView!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         makeJSONrequest(searchTerm: searchTerm)
+        powerTable.delegate = self
+        powerTable.dataSource = self
+        
+       
     
     
     }
@@ -44,10 +58,11 @@ class HeroVC: UIViewController {
                 } else {
                      self.hero = hero[0] //only want the first result returned
                 }
-                
-               
-                
+                let powerstats = self.hero.powerstats
+                self.powerstats = powerstats
+                print(self.powerstats)
                 self.displayHero()
+                print("number of attributes is", self.hero.powerstats.count)
             case .failure(let err):
                  print("failed to fetch hero", err)
                 }
@@ -62,17 +77,22 @@ class HeroVC: UIViewController {
         if let url = self.hero.image["url"] {
         self.image.loadImageFromURL(urlString: url)
         }
-     
-        
         }
 
     }
-    
     func printTerms(){
         for (key, value) in hero.powerstats {
             print("\(key), \(value)")
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return powerstats.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
     
     
