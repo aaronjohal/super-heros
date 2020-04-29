@@ -22,11 +22,6 @@ struct Hero: Codable {
 }
 
 struct Powers: Codable {
-    let intelligence: String
-    let strength : String
-    let speed: String
-    let durability: String
-    let power: String
-    let combat: String
-    
+    let powerName : String
+    let powerAbility : String
 }

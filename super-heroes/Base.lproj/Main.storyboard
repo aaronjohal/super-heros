@@ -23,6 +23,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zxw-Vx-JR1">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuperHeroCell" rowHeight="112" id="nbW-Cc-VLG" customClass="SuperHeroCell" customModule="super_heroes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="112"/>
@@ -34,7 +35,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Super Hero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfV-c9-TBS">
                                                     <rect key="frame" x="126.5" y="39.5" width="122" height="33"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -43,6 +44,7 @@
                                                 <constraint firstItem="cfV-c9-TBS" firstAttribute="centerY" secondItem="K6Z-fc-xwr" secondAttribute="centerY" id="bTI-SF-dqZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="title" destination="cfV-c9-TBS" id="2or-SI-Hj6"/>
                                         </connections>
@@ -50,7 +52,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CFl-Ep-WoD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5NB-qd-VFl"/>
                             <constraint firstItem="Zxw-Vx-JR1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B3y-gC-UeO"/>
@@ -98,18 +100,45 @@
                                 <rect key="frame" x="16" y="432" width="343" height="215"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="4YN-hz-GgS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PowerCell" rowHeight="85" id="4YN-hz-GgS" customClass="PowerCell" customModule="super_heroes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4YN-hz-GgS" id="3tN-ow-qPX">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qZ-2r-KQt">
+                                                    <rect key="frame" x="25" y="26" width="293" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eB-1L-TJ0">
+                                                    <rect key="frame" x="257.5" y="26" width="60.5" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5eB-1L-TJ0" firstAttribute="centerY" secondItem="1qZ-2r-KQt" secondAttribute="centerY" id="05a-7Q-F1B"/>
+                                                <constraint firstItem="1qZ-2r-KQt" firstAttribute="centerY" secondItem="3tN-ow-qPX" secondAttribute="centerY" id="3Qi-S3-flB"/>
+                                                <constraint firstItem="1qZ-2r-KQt" firstAttribute="centerX" secondItem="3tN-ow-qPX" secondAttribute="centerX" id="dxP-wN-j0a"/>
+                                                <constraint firstItem="5eB-1L-TJ0" firstAttribute="leading" relation="lessThanOrEqual" secondItem="3tN-ow-qPX" secondAttribute="leadingMargin" constant="244" id="gfB-Tj-B8c"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5eB-1L-TJ0" secondAttribute="trailing" constant="10" id="mN1-iS-cGU"/>
+                                                <constraint firstItem="1qZ-2r-KQt" firstAttribute="leading" secondItem="3tN-ow-qPX" secondAttribute="leadingMargin" constant="10" id="ny8-Sh-hL5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="level" destination="5eB-1L-TJ0" id="b4y-uA-ZU6"/>
+                                            <outlet property="power" destination="1qZ-2r-KQt" id="jr9-rC-92W"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rB9-2O-SIG" firstAttribute="trailing" secondItem="WQW-RQ-hyd" secondAttribute="trailing" constant="79" id="50F-mh-T82"/>
                             <constraint firstItem="WQW-RQ-hyd" firstAttribute="leading" secondItem="rB9-2O-SIG" secondAttribute="leading" constant="79" id="C9x-1O-7j8"/>

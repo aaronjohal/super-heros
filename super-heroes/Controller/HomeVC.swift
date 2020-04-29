@@ -41,6 +41,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         searchBar.delegate = self
         tableView.isHidden = true
+        tableView.backgroundColor = .black
         
 
         herosSearchList = readHerosFromFile()
@@ -69,6 +70,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return [String]()
 
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -107,6 +109,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }
     }
+    
+    
+    
+ 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

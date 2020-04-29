@@ -9,23 +9,27 @@
 import UIKit
 
 class HeroVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     
     
     var searchTerm = ""
     var hero: Hero!
-    var powerstats = [String: String] (){
+    var powers = [Powers] (){ //array of power struct objects that will load into the table view
         didSet {
             DispatchQueue.main.async {
                 self.powerTable.reloadData()
             }
         }
     }
- 
- @IBOutlet weak var name: UILabel!
- @IBOutlet weak var image: UIImageView!
- @IBOutlet weak var powerTable: UITableView!
-
+    
+    
+    
+    
+    
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var powerTable: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +37,23 @@ class HeroVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         makeJSONrequest(searchTerm: searchTerm)
         powerTable.delegate = self
         powerTable.dataSource = self
+        powerTable.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
-       
-    
-    
     }
     
     
+    /** Method used to initialise the search term from a different VC before current VC loads*/
     func initSearchTerm(title: String){
         self.searchTerm = title
     }
     
+    
+    /** Helper method to make JSON request  and handle the results */
     func makeJSONrequest(searchTerm: String){
         
-       let request =  SuperHeroRequest.init(searchTerm: searchTerm)
-    
-
+        let request =  SuperHeroRequest.init(searchTerm: searchTerm)
+        
+        
         request.requestHeroJSON { (res) in
             switch res {
             case .success(let hero): //would use a for-Each if we were dealing with arrays
@@ -56,52 +61,65 @@ class HeroVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 if searchTerm == "Batman" {
                     self.hero = hero[1]
                 } else {
-                     self.hero = hero[0] //only want the first result returned
+                    self.hero = hero[0] //only want the first result returned
                 }
+                
                 let powerstats = self.hero.powerstats
-                self.powerstats = powerstats
-                print(self.powerstats)
-                self.displayHero()
-                print("number of attributes is", self.hero.powerstats.count)
-            case .failure(let err):
-                 print("failed to fetch hero", err)
+                
+                //get contents of dictionary and put in array for table view
+                for (key,value) in powerstats {
+                    self.powers.append(Powers(powerName: key, powerAbility: value))
                 }
-        }
-    
-        
-    }
-    
-    func displayHero(){
-      DispatchQueue.main.async {
-        self.name.text = self.hero.name
-        if let url = self.hero.image["url"] {
-        self.image.loadImageFromURL(urlString: url)
-        }
-        }
 
+                self.displayHero()
+            case .failure(let err):
+                print("failed to fetch hero", err)
+            }
+        }
+        
+        
     }
-    func printTerms(){
-        for (key, value) in hero.powerstats {
-            print("\(key), \(value)")
+    
+    
+    /** Displays the title and image of the superhero */
+    func displayHero(){
+        DispatchQueue.main.async {
+            self.name.text = self.hero.name
+            self.name.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            if let url = self.hero.image["url"] {
+                self.image.loadImageFromURL(urlString: url) //extension to image that loads image from URL
+                self.image.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                self.image.layer.borderWidth = 10
+            }
+         
         }
         
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return powerstats.count
+        return powers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PowerCell", for: indexPath) as? PowerCell {
+            let power = powers[indexPath.row]
+            cell.updateViews(power: power.powerName, level: power.powerAbility)
+            return cell
+        }
+        return PowerCell()
     }
     
     
-
+    
 }
+
 
 
 let imageCache = NSCache<NSString, UIImage>()
 
+/** Extension class that allows you to download and cache images from URL*/
 extension UIImageView {
     
     func loadImageFromURL(urlString: String){
